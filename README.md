@@ -35,3 +35,7 @@ This repository contains a Java web application for basic staff management tasks
 
 - The repository contains multiple source folders (including `test/`): review the code under `test/src/main/java/ApplyLeave` to find the database connection utility and servlets.
 - If you want, I can add a sample SQL schema, a Tomcat `context.xml` datasource example, or prepare a WAR build script — tell me which you prefer.
+ - The repository contains multiple source folders (including `test/`): review the code under `test/src/main/java/ApplyLeave` to find the database connection utility and servlets.
+ - Example DB schema: `db/schema.sql` (MySQL syntax) — edit as needed for your database.
+ - Tomcat datasource example: `config/context.xml.example` — copy into Tomcat's `conf/context.xml` or your app's `META-INF/context.xml` and update credentials.
+ - If you want, I can prepare a WAR build script or add a small README section describing how to wire the JNDI resource into the app code.
