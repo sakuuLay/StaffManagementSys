@@ -1,0 +1,50 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>RequestLeave</title>
+</head>
+<body>
+	<form action = "#" method = "post">
+		
+		<label for="empintID">Enter an Integer:</label>
+		<input type="text" id="empintID" name="eid" placeholder="ID" pattern="^-?\d+$" required>
+		<span id="error" style="color: red; display: none;">Please enter a valid (integer) number.</span>
+
+		<label for="empname">Enter your name: </label>
+		<input type="text" id="empname" name="name" placeholder="Name" required><br>
+		<span id="error" style="color: red; display: none;">Required field.</span>
+
+		<label for="empdid">Enter department ID: </label>
+		<input type="text" id="empdid" name="did" placeholder="Department ID" required><br>
+		<span id="error" style="color: red; display: none;">Required field.</span>
+		
+		<label for="type">Leave type: </label>
+		<input type="text" id="type"  name="type" placeholder="Type" required><br>
+		<span id="error" style="color: red; display: none;">Required field.</span>
+		
+		<label for="date">Requesting date: </label>
+		<input type="date" id="date"  name="date" required><br>
+		<span id="error" style="color: red; display: none;">Required field.</span>
+		
+		<label for="des">Requesting date: </label>
+		<input type="text" id="des"  name="des" placeholder="Description(Optional)"><br>
+		
+		<button type="submit">Submit</button>
+	</form>
+	<script>
+    	document.getElementById('empintID').addEventListener('input', function (event)) {
+        var input = event.target;
+        var errorMessage = document.getElementById('error');
+
+        if (input.validity.patternMismatch) {
+            errorMessage.style.display = 'block';
+        } else {
+            errorMessage.style.display = 'none';
+        }
+    };
+    </script>
+</body>
+</html>

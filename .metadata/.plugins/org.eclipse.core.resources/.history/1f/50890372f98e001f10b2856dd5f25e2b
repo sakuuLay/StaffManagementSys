@@ -1,0 +1,82 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>StaffMemberAccount</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        span.error {
+            color: red;
+            display: none;
+        }
+    </style>
+
+
+</head>
+<body>
+	This is Staff Account
+	
+	<div><h1>${msg}</h1></div>
+	
+	<c:forEach var="member" items="${AccDetails}">
+	
+	<c:set var="id" value="${member.EID}"/>
+	<c:set var="name" value="${member.eName}"/>
+	<c:set var="email" value="${member.email}"/>
+	
+	
+	<table>
+	<tr>
+		<td>Customer ID</td>
+		<td>${member.EID}</td>
+	</tr>
+	<tr>
+		<td>Customer Name</td>
+		<td>${member.eName}</td>
+	</tr>
+	<tr>
+		<td>Customer Email</td>
+		<td>${member.email}</td>
+	</tr>
+	
+	</table>
+	
+	</c:forEach>
+	
+	<a href = "LeaveRequest.jsp">
+	<button name = "formRedirector">Request a Leave</button>
+	</a>
+	
+	<form action = "LeaveCtrlServlet" method = "post">
+	<fieldset>
+	<legend>View request</legend>
+			<label for="Reqid">Enter received request ID:</label>
+            <input type="text" id="Reqid" name="did" placeholder="Request ID" pattern="(100|[1-9]?[0-9])$" required>
+            <span id="errorInt" class="error">Please enter a valid (integer) number.</span><br>
+            
+            <button type="submit">View submitted request</button><br><br><br>
+		</fieldset>
+	</form>
+	
+	<script>
+		 document.getElementById('empintID').addEventListener('input', function (event) {
+         var input = event.target;
+         var errorMessage = document.getElementById('errorInt');
+         if (input.validity.patternMismatch) {
+             errorMessage.style.display = 'block';
+         } else {
+             errorMessage.style.display = 'none';
+         }
+     });
+	</script>
+	       
+	
+	
+</body>
+</html>

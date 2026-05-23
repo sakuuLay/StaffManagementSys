@@ -1,0 +1,36 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>RequestLeave</title>
+</head>
+<body>
+	<form action = "#" method = "post">
+		
+		<label for="integerInput">Enter an Integer:</label>
+		<input type="text" id="integerInput" name="eid" placeholder="ID" pattern="^-?\d+$" required>
+		<span id="error" style="color: red; display: none;">Please enter a valid integer.</span>
+		
+		Employee Name: <input type="text" name="name" placeholder="Name" required><br>
+		Department:<input type="text" name="did" placeholder="Department ID" required><br>
+		Leave type:<input type="text" name="type" placeholder="Type" required><br>
+		Required date:<input type="date" name="date" required><br>
+		Reason:<input type="text" name="des" placeholder="Description(Optional)"><br>
+		<button type="submit">Submit</button>
+	</form>
+	<script>
+    document.getElementById('integerInput').addEventListener('input', function (event) {
+        var input = event.target;
+        var errorMessage = document.getElementById('error');
+
+        if (input.validity.patternMismatch) {
+            errorMessage.style.display = 'block';
+        } else {
+            errorMessage.style.display = 'none';
+        }
+    });
+    </script>
+</body>
+</html>

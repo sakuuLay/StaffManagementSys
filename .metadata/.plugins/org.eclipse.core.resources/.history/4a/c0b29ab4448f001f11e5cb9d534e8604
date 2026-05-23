@@ -1,0 +1,73 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+ <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+ 
+ 
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>View Request</title>
+</head>
+<body>
+<c:forEach var="fReq" items="${fReq}">
+	
+	<c:set var="rid" value="${fReq.ReqID}"/>
+	<c:set var="eid" value="${fReq.empID}"/>
+	<c:set var="ename" value="${fReq.ename}"/>
+	<c:set var="depId" value="${fReq.depID}"/>
+	<c:set var="type" value="${fReq.type}"/>
+	<c:set var="date" value="${fReq.date}"/>
+	<c:set var="des" value="${fReq.des}"/>
+	<c:set var="approval" value="${fReq.approval}"/>
+	<c:set var="email" value="${fReq.email}"/>
+	<c:set var="Submission" value="${fReq.Submission}"/>
+
+	<table>
+	<tr>
+		<td>Request ID: </td>
+		<td>${fReq.ReqID}}</td>
+	</tr>
+	<tr>
+		<td>EiD: </td>
+		<td>${fReq.empID}</td>
+	</tr>
+	<tr>
+		<td>Employee name: </td>
+		<td>${fReq.ename}</td>
+	</tr>
+	<tr>
+		<td>Department ID: </td>
+		<td>${fReq.depID}</td>
+	</tr>
+	<tr>
+		<td>Requested leave type: </td>
+		<td>${fReq.type}</td>
+	</tr>
+	<tr>
+		<td>Requiring date: </td>
+		<td>${fReq.date}</td>
+	</tr>
+	<tr>
+		<td>Description: </td>
+		<td>${fReq.des}</td>
+	</tr>
+	<tr>
+		<td>Approval: </td>
+		<td>${fReq.approval}</td>
+	</tr>
+	<tr>
+		<td>Submitted email: </td>
+		<td>${fReq.email}</td>
+	</tr>
+	<tr>
+		<td>Submission: </td>
+		<td>${fReq.Submission}</td>
+	</tr>
+	
+	</table>
+	
+	</c:forEach>
+
+</body>
+</html>

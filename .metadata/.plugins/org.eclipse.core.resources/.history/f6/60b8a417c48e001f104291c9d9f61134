@@ -1,0 +1,81 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>RequestLeave</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        span.error {
+            color: red;
+            display: none;
+        }
+    </style>
+
+</head>
+
+
+<body>
+	
+    <form action="LeaveServlet" method="post">
+        <label for="empintID">Enter your EID:</label>
+        <input type="text" id="empintID" name="eid" placeholder="ID number" pattern = "[[1-9]?[0-9]]" required>
+        <span id="errorInt" class="error">Please enter a valid (integer) number.</span><br>
+
+        <label for="empname">Enter your name:</label>
+        <input type="text" id="empname" name="name" placeholder="Name" required>
+        <br>
+
+        <label for="empdid">Enter department ID:</label>
+        <input type="text" id="empdid" name="did" placeholder="Department ID" pattern="[A-Z]{2}\d{2}" required>
+        <span id="errorDept" class="error">Department ID <i>ex</i> : 'SM01'</span><br>
+
+        <label for="type">Leave type:</label>
+        <input type="text" id="type" name="type" placeholder="Type" required>
+        <br>
+
+        <label for="date">Requesting date:</label>
+        <input type="date" id="date" name="date" required>
+        ><br>
+
+        <label for="des">Description (Optional):</label>
+        <input type="text" id="des" name="des" placeholder="Description (Optional)"><br>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        // Validate integer input
+        document.getElementById('empintID').addEventListener('input', function (event) {
+            var input = event.target;
+            var errorMessage = document.getElementById('errorInt');
+
+            if (input.validity.patternMismatch) {
+                errorMessage.style.display = 'block';
+            } else {
+                errorMessage.style.display = 'none';
+            }
+        });
+        
+        document.getElementById('empdid').addEventListener('input', function (event) {
+            var input = event.target;
+            var errorMessage = document.getElementById('errorDept');
+
+            if (input.validity.patternMismatch) {
+                errorMessage.style.display = 'block';
+            } else {
+                errorMessage.style.display = 'none';
+            }
+        });
+
+      
+    </script>
+</body>
+</html>

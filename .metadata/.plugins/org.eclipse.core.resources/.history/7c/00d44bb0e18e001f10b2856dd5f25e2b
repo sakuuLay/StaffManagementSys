@@ -1,0 +1,9 @@
+package ApplyLeave;
+
+public class fRequest {
+
+	public fRequest() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

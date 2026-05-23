@@ -1,0 +1,136 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>RequestLeave</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+    body {
+            background-image: url('imgs/whiteOffice.jpg');
+            background-size: cover;
+            background-attachment: fixed;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+      .background-blur {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: inherit;
+            filter: blur(10px);
+            z-index: -1;
+        }
+       
+    .form-container {
+        background-color: #ffffff;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        max-width: 450px;
+        width: 100%;
+    }
+    .form-container h2 {
+       color: #1e88e5;
+       text-align: center;
+    }
+    .form-container label {
+        display: block;
+        margin-bottom: 10px;
+        color: #333;
+    }
+    .form-container input[type="text"],
+    .form-container input[type="date"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+    }
+    .form-container .error {
+        color: orange;
+        display: none;
+    }
+    .form-container button {
+        width: 100%;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        background-color: #4CAF50;
+        color: white;
+        font-size: 16px;
+        cursor: pointer;
+    }
+    .form-container button:hover {
+        background-color: #45a049;
+    }
+</style>
+</head>
+
+
+<body>
+    <div class="form-container">
+        <h2>Request Leave</h2>
+        <form action="LeaveCtrlServlet" method="post">
+            <label for="empintID">Enter your EID:</label>
+            <input type="text" id="empintID" name="eid" placeholder="ID number" pattern="(100|[1-9]?[0-9])$" required>
+            <span id="errorInt" class="error">Please enter a valid (integer) number.</span>
+
+            <label for="empname">Enter your name:</label>
+            <input type="text" id="empname" name="name" placeholder="Name" required>
+
+            <label for="empdid">Enter department ID:</label>
+            <input type="text" id="empdid" name="did" placeholder="Department ID" pattern="[A-Z]{2}\d{2}" required>
+            <span id="errorDept" class="error">Department ID <i>ex</i> : 'SM01'</span>
+
+            <label for="type">Leave type:</label>
+            <input type="text" id="type" name="type" placeholder="Type" required>
+
+            <label for="date">Requesting date:</label>
+            <input type="date" id="date" name="date" required>
+
+            <label for="des">Description (Optional):</label>
+            <input type="text" id="des" name="des" placeholder="Description (Optional)">
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+    <script>
+        // Validate integer input
+        document.getElementById('empintID').addEventListener('input', function (event) {
+            var input = event.target;
+            var errorMessage = document.getElementById('errorInt');
+            if (input.validity.patternMismatch) {
+                errorMessage.style.display = 'block';
+            } else {
+                errorMessage.style.display = 'none';
+            }
+        });
+
+        // Validate department ID input
+        document.getElementById('empdid').addEventListener('input', function (event) {
+            var input = event.target;
+            var errorMessage = document.getElementById('errorDept');
+            if (input.validity.patternMismatch) {
+                errorMessage.style.display = 'block';
+            } else {
+                errorMessage.style.display = 'none';
+            }
+        });
+
+      
+    </script>
+</body>
+</html>
+
+

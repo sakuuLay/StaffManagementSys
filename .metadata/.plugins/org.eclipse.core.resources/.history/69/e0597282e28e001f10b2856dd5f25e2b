@@ -1,0 +1,12 @@
+package ApplyLeave;
+
+public class fRequest extends LeaveRequest {
+	
+	private String approval;
+	private String email;
+	private String submission;
+	
+	
+	
+
+}

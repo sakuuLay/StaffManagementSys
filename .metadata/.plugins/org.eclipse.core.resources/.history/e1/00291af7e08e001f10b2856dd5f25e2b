@@ -1,0 +1,9 @@
+package ApplyLeave;
+
+public class fname {
+
+	public fname() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

@@ -1,0 +1,38 @@
+package ApplyLeave;
+
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
+
+public class LRequestDButil {
+	
+	private static Connection con = null;
+	private static Statement stmt = null;
+	private static ResultSet rs = null;
+
+    public static boolean sendRequest(int eID, String eName, String dID, String type, String date, String des) {
+    	
+    	boolean isSuccess = false;
+    	
+    	try {
+    		con = connectDB.getConnection();
+    		stmt = con.createStatement();
+    	    String sql = "insert into lrequest(empID,ename,depID,type,date,des) values ('"+eID+"','"+eName+"','"+dID+"','"+type+"','"+date+"','"+des+"')";
+    		int rw = stmt.executeUpdate(sql);
+    		
+    		if(rw > 0) {
+    			isSuccess = true;
+    		} else {
+    			isSuccess = false;
+    			throw new Exception("no row affected");
+    		}
+    		
+    	}
+    	catch (Exception e) {
+    		System.out.println("Connection error : " + e.getMessage());
+    	}
+ 	
+    	return isSuccess;
+    }
+	
+}

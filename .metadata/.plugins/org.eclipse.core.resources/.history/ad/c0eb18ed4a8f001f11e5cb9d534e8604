@@ -1,0 +1,92 @@
+package ApplyLeave;
+
+public class LeaveRequest {
+	
+	private int reqID;
+	private int EID;
+	private String eName;
+	private String DID;
+	private String type;
+	private String date;
+	private String des;
+	
+	public LeaveRequest(int eID, String eName, String dID, String type, String date, String des) {
+		EID = eID;
+		this.eName = eName;
+		DID = dID;
+		this.type = type;
+		this.date = date;
+		this.des = des;
+	}
+
+	public LeaveRequest(int reqid, int eID, String eName, String dID, String type, String date, String des) {
+		reqID = reqid;
+		EID = eID;
+		this.eName = eName;
+		DID = dID;
+		this.type = type;
+		this.date = date;
+		this.des = des;
+	}
+
+	
+	public int getReqID() {
+		return reqID;
+	}
+
+	public int getEID() {
+		return EID;
+	}
+
+	public String geteName() {
+		return eName;
+	}
+
+	public String getDID() {
+		return DID;
+	}
+
+	public String getType() {
+		return type;
+	}
+
+	public String getDate() {
+		return date;
+	}
+
+	public String getDes() {
+		return des;
+	}
+
+	public void setReqID(int reqID) {
+		this.reqID = reqID;
+	}
+
+	public void setEID(int eID) {
+		EID = eID;
+	}
+
+	public void seteName(String eName) {
+		this.eName = eName;
+	}
+
+	public void setDID(String dID) {
+		DID = dID;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
+
+	public void setDate(String date) {
+		this.date = date;
+	}
+
+	public void setDes(String des) {
+		this.des = des;
+	}
+	
+	
+	
+
+}
